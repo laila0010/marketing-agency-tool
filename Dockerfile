@@ -1,1 +1,8 @@
-FROM nginx:alpinePrepare the directory and remove the default Nginx welcome pageRUN mkdir -p /usr/share/nginx/html && rm -f /usr/share/nginx/html/index.htmlCopy the static index.html file to the Nginx serving pathCOPY index.html /usr/share/nginx/html/index.html
+# استخدم Nginx كصورة أساسية
+FROM nginx:alpine
+
+# حضّر المجلد واحذف الصفحة الافتراضية
+RUN mkdir -p /usr/share/nginx/html && rm -f /usr/share/nginx/html/index.html
+
+# انسخ ملف index.html الخاص بك
+COPY index.html /usr/share/nginx/html/index.html
