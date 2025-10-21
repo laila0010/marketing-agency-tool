@@ -1,1 +1,1 @@
-FROM nginx:alpineSetup working directory and remove default Nginx welcome fileRUN mkdir -p /usr/share/nginx/html && rm -f /usr/share/nginx/html/index.htmlCopy the static site file to Nginx's default serving pathCOPY index.html /usr/share/nginx/html/index.html
+FROM nginx:alpinePrepare the directory and remove the default Nginx welcome pageRUN mkdir -p /usr/share/nginx/html && rm -f /usr/share/nginx/html/index.htmlCopy the static index.html file to the Nginx serving pathCOPY index.html /usr/share/nginx/html/index.html
