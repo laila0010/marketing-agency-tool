@@ -1,14 +1,14 @@
-# استخدم Nginx كخادم ويب خفيف
+# استخدم nginx لتشغيل الموقع
 FROM nginx:alpine
 
-# تعيين مجلد العمل داخل الحاوية
-WORKDIR /usr/share/nginx/html
+# احذف الملفات الافتراضية داخل nginx
+RUN rm -rf /usr/share/nginx/html/*
 
-RUN rm -rf ./*
+# انسخ كل ملفات المشروع إلى مجلد nginx
+COPY . /usr/share/nginx/html
 
-COPY . .
-
-# فتح المنفذ 80 للوصول للموقع
+# افتح المنفذ 80
 EXPOSE 80
 
-# لا حاجة لأمر CMD لأن Nginx يبدأ تلقائياً
+# شغّل nginx تلقائيًا
+CMD ["nginx", "-g", "daemon off;"]
