@@ -1,1 +1,6 @@
-.git.gitignorenode_modules
+.git
+.gitignore
+Dockerfile
+.dockerignore
+node_modules
+*.log
