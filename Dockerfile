@@ -1,13 +1,14 @@
+# استخدم صورة Nginx رسمية
 FROM nginx:alpine
 
-# احذف ملفات nginx الافتراضية
+# احذف المحتوى الافتراضي
 RUN rm -rf /usr/share/nginx/html/*
 
-# انسخ كل ملفات المشروع (HTML, CSS, JS, images) لمجلد nginx
-COPY . /usr/share/nginx/html
+# انسخ كل ملفات المشروع إلى مسار Nginx
+COPY . /usr/share/nginx/html/
 
-# افتح المنفذ
+# كشف البورت 80
 EXPOSE 80
 
-# شغّل nginx
+# شغل Nginx في foreground
 CMD ["nginx", "-g", "daemon off;"]
