@@ -1,429 +1,297 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">أدوات التسويق الرقمي - الميزة التنافسية</title>
-    <!-- تضمين Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- خط Almarai الاحترافي -->
-    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>MarketPro - أدوات تسويقية احترافية | Professional Marketing Tools</title>
+
+    <meta name="description" content="MarketPro - أدوات تسويقية احترافية تساعدك على تطوير أعمالك وزيادة الإنتاجية باستخدام الذكاء الاصطناعي والتحليلات الذكية.">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
     <style>
-        /* الألوان الجديدة: موف، أسود، أبيض، رمادي */
-        :root {
-            /* وضع نهاري (Light Mode) */
-            --primary-color: #7c3aed; /* Violet 600 */
-            --secondary-color: #a78bfa; /* Violet 400 */
-            --bg-body: #f9fafb; /* Gray 50 (الخلفية العامة الفاتحة) */
-            --bg-surface: #ffffff; /* الخلفيات الداخلية للبطاقات والهيدر */
-            --bg-mid: #f3f4f6; /* خلفية قسم العملاء (Gray 100) */
-            --text-default: #1f2937; /* Gray 800 */
-            --text-secondary: #4b5563; /* Gray 600 */
-            --shadow-color: rgba(124, 58, 237, 0.25);
-        }
-
-        /* وضع ليلي (Dark Mode) */
-        body.dark-mode {
-            --primary-color: #a78bfa; /* Violet 400 - أكثر إشراقاً في الخلفية الداكنة */
-            --secondary-color: #c4b5fd; /* Violet 300 */
-            --bg-body: #111827; /* Gray 900 (الخلفية العامة الداكنة) */
-            --bg-surface: #1f2937; /* Gray 800 (الخلفيات الداخلية للبطاقات والهيدر) */
-            --bg-mid: #0d121c; /* خلفية قسم العملاء (أكثر قتامة) */
-            --text-default: #f9fafb; /* Light Gray */
-            --text-secondary: #d1d5db; /* Gray 300 */
-            --shadow-color: rgba(167, 139, 250, 0.15); /* ظل بنفسجي فاتح */
-        }
-
         body {
-            font-family: 'Almarai', 'Inter', sans-serif;
-            background-color: var(--bg-body); 
-            color: var(--text-default);
-            transition: background-color 0.5s ease, color 0.5s ease;
-        }
-        .header-bg {
-            background-color: var(--bg-surface);
-            transition: background-color 0.5s ease;
-        }
-        .section-bg-light {
-             background-color: var(--bg-body); /* أقسام تستخدم الخلفية العامة */
-        }
-        .section-bg-mid {
-             background-color: var(--bg-surface); /* أقسام تستخدم خلفية السطح الداخلي */
-        }
-        .section-bg-alt {
-            background-color: var(--bg-mid); /* خلفية قسم العملاء/الشهادات */
-            transition: background-color 0.5s ease;
-        }
-
-        .gradient-text {
-            background-image: linear-gradient(to right, var(--primary-color), #5b21b6);
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-        .card-shadow-hover {
-            background-color: var(--bg-surface);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            border-color: var(--primary-color);
-        }
-        .dark-mode .card-shadow-hover {
-            border: 1px solid rgba(124, 58, 237, 0.3);
-        }
-        .card-shadow-hover:hover {
-            transform: translateY(-8px); 
-            box-shadow: 0 15px 30px var(--shadow-color);
-        }
-        .cta-button {
-            border-radius: 9999px; 
-            padding: 0.85rem 3rem;
-            font-weight: 800; 
-            transition: all 0.3s ease;
-            background-color: var(--primary-color);
-            color: var(--bg-surface);
-        }
-        .cta-button:hover {
-             background-color: #5b21b6; /* لون ثابت للتأثير */
-        }
-        /* لضمان وضوح الأيقونات والروابط الثانوية */
-        .text-secondary-color {
-            color: var(--text-secondary);
-        }
-        .text-default-color {
-            color: var(--text-default);
+            font-family: 'Cairo', sans-serif;
         }
     </style>
 </head>
-<body class="antialiased">
 
-    <!-- شريط التنقل (Navigation) -->
-    <header class="header-bg shadow-xl sticky top-0 z-20">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <div class="text-3xl font-extrabold text-default-color">
-                <span class="gradient-text" data-i18n="nav-platform-name">منصة</span> <span class="text-secondary-color" data-i18n="nav-growth-name">النمو</span>
-            </div>
-            <div class="flex items-center space-x-4 sm:space-x-6 space-x-reverse">
-                
-                <!-- أدوات التبديل (اللغة والوضع) -->
-                <div class="flex items-center space-x-3 space-x-reverse">
-                    <!-- زر تبديل الوضع (نهاري/ليلي) -->
-                    <button id="theme-toggle" class="p-3 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-200 text-default-color">
-                        <!-- أيقونة الشمس/القمر -->
-                        <svg id="sun-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                        <svg id="moon-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
-                    </button>
+<body>
 
-                    <!-- زر تبديل اللغة -->
-                    <button id="language-toggle" class="p-3 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-200 text-default-color font-bold text-sm" data-current-lang="ar">
-                        EN
-                    </button>
-                </div>
-                
-                <!-- روابط التنقل -->
-                <a href="#features" class="text-secondary-color hover:text-[var(--primary-color)] transition duration-150 font-medium hidden sm:block" data-i18n="nav-features">المزايا</a>
-                <a href="#clients" class="text-secondary-color hover:text-[var(--primary-color)] transition duration-150 font-medium hidden sm:block" data-i18n="nav-clients">عملاؤنا</a>
-                <a href="#testimonial" class="text-secondary-color hover:text-[var(--primary-color)] transition duration-150 font-medium hidden sm:block" data-i18n="nav-testimonial">الشهادات</a>
-                
-                <button class="text-white px-8 py-3 rounded-full shadow-lg shadow-violet-500/50 text-base font-bold cta-button" data-i18n="nav-cta">
-                    اطلب عرضاً توضيحياً
-                </button>
-            </div>
+    <header class="header">
+        <a href="#" class="logo">MarketPro.<span class="animate" style="--i:1;"></span></a>
+
+        <div class="bx bx-menu" id="menu-icon"><span class="animate" style="--i:2;"></span></div>
+
+        <nav class="navbar">
+            <a href="#home" class="active">الرئيسية</a>
+            <a href="#about">من نحن</a>
+            <a href="#education">حلولنا</a>
+            <a href="#skills">مزايانا</a>
+            <a href="#contact">عملاؤنا السابقون</a>
+
+            <span class="active-nav"></span>
+            <span class="animate" style="--i:2;"></span>
         </nav>
     </header>
 
-    <!-- قسم الأبطال (Hero Section) - تصميم موحد ومحور قيمة جديد -->
-    <section class="py-24 lg:py-40 relative overflow-hidden section-bg-light">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            
-            <h1 class="text-5xl sm:text-7xl font-extrabold text-default-color mb-6 leading-snug">
-                <span data-i18n="hero-part1">استراتيجيتك التسويقية، معززة</span> <span class="gradient-text" data-i18n="hero-part2">بذكاء منصتنا</span>
-            </h1>
-            <p class="text-xl sm:text-2xl text-secondary-color mb-12 max-w-4xl mx-auto font-light" data-i18n="hero-paragraph">
-                من تحليل البيانات وصولاً إلى أعلى عائد استثمار (ROI). نحن نجعل التسويق الرقمي بسيطاً وفعالاً ومربحاً لك. 
+    <section class="home show-animate" id="home">
+        <div class="home-content">
+            <h1>حوّل جهودك التسويقية إلى <span>نتائج مذهلة</span><span class="animate" style="--i:2;"></span></h1>
+            <div class="text-animate">
+                <h3>أدوات تسويقية ذكية لمضاعفة إنتاجيتك</h3>
+                <span class="animate" style="--i:3;"></span>
+            </div>
+            <p>نوفر لك مجموعة شاملة من الأدوات التسويقية المتطورة التي تساعدك على تحسين كفاءة عملك وتقليل الوقت المهدور. 
+                معنا ستتمكن من الوصول إلى جمهورك المستهدف بسهولة ودقة غير مسبوقة، وزيادة إنتاجيتك بنسبة تصل إلى 300% .
+                احصل على تقارير مفصلة وتحليلات دقيقة توضح التحسينات التي حققتها، واتخذ قرارات تسويقية مبنية على بيانات حقيقية.
+                انضم إلى آلاف المسوقين الناجحين الذين يثقون بحلولنا لتحقيق أهدافهم التسويقية بذكاء وفعالية.
+                <span class="animate" style="--i:4;"></span>
             </p>
-            
-            <a href="#features" class="text-white px-12 py-4 cta-button text-xl font-bold transition duration-300 shadow-2xl shadow-violet-500/50 inline-block transform hover:scale-[1.05]" data-i18n="hero-cta">
-                اكتشف كيف نُسَهّل عملك
-            </a>
 
-            <!-- البديل الجديد لـ Advanced Dashboard: شرح القيمة في 3 خطوات -->
-            <div class="mt-24 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                
-                <!-- الخطوة 1: التحليل الذكي -->
-                <div class="p-8 rounded-2xl shadow-xl card-shadow-hover flex flex-col items-center border-t-4 transform transition duration-500 hover:scale-[1.03]">
-                    <div class="w-16 h-16 mb-4 mx-auto rounded-full bg-[var(--secondary-color)] flex items-center justify-center text-white text-3xl font-bold shadow-lg">
-                        <svg class="w-8 h-8" fill="none" stroke="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-extrabold mb-2 text-default-color" data-i18n="step1-title">التحليل الذكي</h3>
-                    <p class="text-sm text-secondary-color" data-i18n="step1-desc">نحلل بيانات السوق والجمهور آلياً لتقديم رؤى دقيقة.</p>
-                </div>
-                
-                <!-- الخطوة 2: بناء الإستراتيجية -->
-                <div class="p-8 rounded-2xl shadow-xl card-shadow-hover flex flex-col items-center border-t-4 transform transition duration-500 hover:scale-[1.03]">
-                    <div class="w-16 h-16 mb-4 mx-auto rounded-full bg-[var(--secondary-color)] flex items-center justify-center text-white text-3xl font-bold shadow-lg">
-                        <svg class="w-8 h-8" fill="none" stroke="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-extrabold mb-2 text-default-color" data-i18n="step2-title">بناء الإستراتيجية</h3>
-                    <p class="text-sm text-secondary-color" data-i18n="step2-desc">تخصيص المحتوى وتحسين ميزانية الإعلانات في الوقت الفعلي.</p>
-                </div>
-
-                <!-- الخطوة 3: تحقيق النمو -->
-                <div class="p-8 rounded-2xl shadow-xl card-shadow-hover flex flex-col items-center border-t-4 transform transition duration-500 hover:scale-[1.03]">
-                    <div class="w-16 h-16 mb-4 mx-auto rounded-full bg-[var(--secondary-color)] flex items-center justify-center text-white text-3xl font-bold shadow-lg">
-                        <svg class="w-8 h-8" fill="none" stroke="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-extrabold mb-2 text-default-color" data-i18n="step3-title">تحقيق النمو</h3>
-                    <p class="text-sm text-secondary-color" data-i18n="step3-desc">شاهد نتائج فورية: ارتفاع المبيعات وتحقيق أعلى عائد استثمار.</p>
-                </div>
+            <div class="btn-box">
+                <a href="#about" class="btn">اكتشف المزيد</a>
+                <span class="animate" style="--i:5;"></span>
             </div>
         </div>
+
+        <div class="home-imgHover"></div>
+        <span class="animate home-img" style="--i:7;"></span>
     </section>
 
-    <!-- قسم العملاء (Clients Logos) -->
-    <section id="clients" class="py-16 lg:py-20 section-bg-alt border-t border-b border-gray-200 dark:border-gray-700">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-2xl font-bold text-default-color mb-12" data-i18n="clients-heading">
-                يثق بنا شركاء النجاح
-            </h2>
-            <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-8 items-center justify-center">
-                
-                <!-- عملاء (تم تعديل الخلفية لاستخدام متغير CSS) -->
-                <div class="text-xl sm:text-2xl font-extrabold text-default-color p-4 bg-[var(--bg-surface)] rounded-xl shadow-lg border border-gray-100 dark:border-gray-600 opacity-90 hover:opacity-100 transition duration-300 transform hover:-translate-y-1">
-                    مركز بريق
-                </div>
-                <div class="text-xl sm:text-2xl font-extrabold text-default-color p-4 bg-[var(--bg-surface)] rounded-xl shadow-lg border border-gray-100 dark:border-gray-600 opacity-90 hover:opacity-100 transition duration-300 transform hover:-translate-y-1">
-                    لقاء
-                </div>
-                <div class="text-xl sm:text-2xl font-extrabold text-default-color p-4 bg-[var(--bg-surface)] rounded-xl shadow-lg border border-gray-100 dark:border-gray-600 opacity-90 hover:opacity-100 transition duration-300 transform hover:-translate-y-1">
-                    غيت باشا
-                </div>
-                <div class="text-xl sm:text-2xl font-extrabold text-default-color p-4 bg-[var(--bg-surface)] rounded-xl shadow-lg border border-gray-100 dark:border-gray-600 opacity-90 hover:opacity-100 transition duration-300 transform hover:-translate-y-1">
-                    غيمة 
-                </div>
+    <section class="about" id="about">
+        <h2 class="heading">من <span>نحن</span><span class="animate scroll" style="--i:1;"></span></h2>
 
-                <!-- شريك آخر -->
-                <div class="text-2xl font-extrabold text-[var(--primary-color)] p-4 rounded-xl border-2 border-[var(--primary-color)] border-dashed opacity-50 hover:opacity-100 transition duration-300 hidden lg:block" data-i18n="clients-cta">
-                    + 100 شريك آخر
-                </div>
-            </div>
+        <div class="about-img">
+            <img src="images/about.jpg" alt="عن MarketPro">
+            <span class="circle-spin"></span>
+            <span class="animate scroll" style="--i:2;"></span>
         </div>
-    </section>
 
-    <!-- قسم الميزة التنافسية (Features) -->
-    <section id="features" class="py-20 lg:py-32 section-bg-mid">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="text-base font-semibold uppercase text-[var(--primary-color)] border-b-2 border-violet-300 pb-1" data-i18n="features-subtitle">القيمة الحقيقية لمنصتنا</span>
-                <h2 class="text-4xl sm:text-5xl font-extrabold text-default-color mt-4" data-i18n="features-heading">
-                    المزايا التنافسية: النتائج التي ستغير عملك
-                </h2>
-                <p class="mt-6 text-xl text-secondary-color max-w-3xl mx-auto" data-i18n="features-paragraph">
-                    نحن نركز على تحسين أداء التسويق لديك، وليس مجرد تقديم أدوات.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                
-                <!-- الميزة 1 -->
-                <div class="p-8 rounded-3xl card-shadow-hover flex flex-col items-center text-center border-t-4">
-                    <div class="w-16 h-16 mb-6 bg-violet-100 dark:bg-violet-900 rounded-full flex items-center justify-center shadow-lg">
-                        <svg class="w-8 h-8 text-[var(--primary-color)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-5a3 3 0 00-3-3H8a3 3 0 00-3 3v5h5M12 12V3"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-extrabold mb-3 text-default-color" data-i18n="feature1-title">تسهيل الوصول لجمهورك المستهدف</h3>
-                    <p class="text-base text-secondary-color font-normal" data-i18n="feature1-desc">نساعدك على تحديد وتصنيف شرائح العملاء بدقة متناهية لضمان وصول رسالتك لمن يهمه الأمر حقاً.</p>
-                </div>
-
-                <!-- الميزة 2 -->
-                <div class="p-8 rounded-3xl card-shadow-hover flex flex-col items-center text-center border-t-4">
-                    <div class="w-16 h-16 mb-6 bg-violet-100 dark:bg-violet-900 rounded-full flex items-center justify-center shadow-lg">
-                        <svg class="w-8 h-8 text-[var(--primary-color)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-extrabold mb-3 text-default-color" data-i18n="feature2-title">الحصول على تقارير وتحليلات فعّالة</h3>
-                    <p class="text-base text-secondary-color font-normal" data-i18n="feature2-desc">وداعاً للتخمين. احصل على رؤى واضحة وقابلة للتنفيذ تدعم قراراتك التسويقية بذكاء.</p>
-                </div>
-
-                <!-- الميزة 3 -->
-                <div class="p-8 rounded-3xl card-shadow-hover flex flex-col items-center text-center border-t-4">
-                    <div class="w-16 h-16 mb-6 bg-violet-100 dark:bg-violet-900 rounded-full flex items-center justify-center shadow-lg">
-                        <svg class="w-8 h-8 text-[var(--primary-color)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.114 0 2 .448 2 1s-.886 1-2 1-2 .448-2 1 .886 1 2 1m-3 1.5h6M9 21h6a2 2 0 002-2V7a2 2 0 00-2-2H9a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-extrabold mb-3 text-default-color" data-i18n="feature3-title">تقليل تكاليف التسويق المهدورة</h3>
-                    <p class="text-base text-secondary-color font-normal" data-i18n="feature3-desc">نضمن توجيه ميزانيتك الإعلانية نحو القنوات والجمهور الذي يحقق أعلى عائد استثمار.</p>
-                </div>
-
-                <!-- الميزة 4 -->
-                <div class="p-8 rounded-3xl card-shadow-hover flex flex-col items-center text-center border-t-4">
-                    <div class="w-16 h-16 mb-6 bg-violet-100 dark:bg-violet-900 rounded-full flex items-center justify-center shadow-lg">
-                        <svg class="w-8 h-8 text-[var(--primary-color)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-extrabold mb-3 text-default-color" data-i18n="feature4-title">ساعات عمل أقل بفضل زيادة الكفاءة</h3>
-                    <p class="text-base text-secondary-color font-normal" data-i18n="feature4-desc">أتمتة المهام الروتينية تمنح فريقك الوقت للتركيز على الإبداع والاستراتيجية بدلاً من العمل اليدوي.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- قسم شهادات العملاء (Testimonial Section) -->
-    <section id="testimonial" class="py-20 lg:py-32 section-bg-alt">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="p-10 sm:p-12 rounded-3xl shadow-2xl shadow-gray-200/50 dark:shadow-gray-900 border-8 border-t-0 border-r-0 border-b-0 border-l-[var(--primary-color)] section-bg-mid">
-                <blockquote class="text-center">
-                    <svg class="w-10 h-10 text-[var(--primary-color)] mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6 17h3l2-4V7H5v6h3l-2 4zm8 0h3l2-4V7h-6v6h3l-2 4z"></path></svg>
-                    <p class="text-2xl sm:text-3xl font-semibold leading-relaxed italic mb-8 text-default-color" data-i18n="testimonial-quote">
-                        "منذ استخدام هذه المنصة، لم يعد التسويق عبئاً. لقد ارتفعت نسبة التحويلات بشكل كبير، والأهم من ذلك، أصبحت لدينا رؤية واضحة جداً للمكان الذي يجب أن نستثمر فيه وقتنا ومالنا. إنها ببساطة الأداة التي غيرت قواعد اللعبة بالنسبة لشركتنا."
-                    </p>
-                    <footer class="text-center pt-4 border-t border-gray-100 dark:border-gray-700">
-                        <p class="text-lg font-extrabold text-[var(--primary-color)]" data-i18n="testimonial-name">
-                            أحد عملائنا
-                        </p>
-                        <p class="text-base text-secondary-color" data-i18n="testimonial-title">
-                            مختص تسويق رقمي
-                        </p>
-                    </footer>
-                </blockquote>
-            </div>
-        </div>
-    </section>
-
-    <!-- قسم الدعوة للإجراء (Call to Action) -->
-    <section class="py-20 bg-gray-800 dark:bg-gray-900">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-6" data-i18n="final-cta-heading">
-                هل أنت مستعد لمضاعفة كفاءة تسويقك؟
-            </h2>
-            <p class="text-xl text-gray-300 mb-10" data-i18n="final-cta-paragraph">
-                لا تضيع المزيد من الجهد والمال. تواصل معنا اليوم لتحقيق أقصى استفادة.
+        <div class="about-content">
+            <h3>شريكك الموثوق في النجاح التسويقي<span class="animate scroll" style="--i:3;"></span></h3>
+            <p>نحن MarketPro، منصة متكاملة تجمع أقوى الأدوات التسويقية في مكان واحد.<br>
+                نؤمن بأن كل مسوق يستحق أدوات احترافية تمكنه من تحقيق أهدافه بسرعة وكفاءة. لهذا صممنا حلولاً ذكية تساعدك على تحليل جمهورك، تحسين حملاتك، وقياس نتائجك بدقة متناهية. مع أكثر من 500 مسوق يثقون بنا، نقدم لك التكنولوجيا التي تحول البيانات إلى قرارات، والجهد إلى نتائج ملموسة.
+                <span class="animate scroll" style="--i:4;"></span>
             </p>
-            <a href="#" class="text-white px-12 py-4 cta-button text-xl font-bold transition duration-300 shadow-xl shadow-violet-500/50 inline-block transform hover:scale-[1.05]" data-i18n="final-cta-button">
-                اطلب عرضاً توضيحياً
-            </a>
+
+         
         </div>
     </section>
 
-    <!-- التذييل (Footer) -->
-    <footer class="py-8 bg-gray-900 dark:bg-black text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
-            &copy; 2025 <span data-i18n="footer-text">منصة النمو. جميع الحقوق محفوظة.</span>
+    <section class="education" id="education">
+        <h2 class="heading">حلولنا <span>المتكاملة</span><span class="animate scroll" style="--i:1;"></span></h2>
+
+        <div class="education-row">
+            <div class="education-column">
+                <h3 class="title">أدوات التسويق الرقمي<span class="animate scroll" style="--i:2;"></span></h3>
+
+                <div class="education-box">
+                    <div class="education-content">
+                        <div class="content">
+                            <div class="year"><i class='bx bxs-calendar'></i> أداة الأتمتة</div>
+                            <h3>التسويق التلقائي الذكي</h3>
+                            <p>أتمتة كاملة لحملاتك التسويقية عبر جميع القنوات. 
+                                وفر 70% من وقتك واترك الأداة تدير حملاتك بذكاء 
+                                اصطناعي متقدم.</p>
+                        </div>
+                    </div>
+
+                    <div class="education-content">
+                        <div class="content">
+                            <div class="year"><i class='bx bxs-calendar'></i> أداة الاستهداف</div>
+                            <h3>الوصول الدقيق للجمهور</h3>
+                            <p>تقنيات استهداف متطورة تضمن وصول رسالتك للأشخاص 
+                                المناسبين في الوقت المناسب. حلل سلوك عملائك، 
+                                واكتشف شرائح جديدة، وزد معدلات التحويل بنسبة 
+                                تصل إلى 250% بفضل الذكاء الاصطناعي.</p>
+                        </div>
+                    </div>
+
+                    <div class="education-content">
+                        <div class="content">
+                            <div class="year"><i class='bx bxs-calendar'></i> أداة التحليل</div>
+                            <h3>تقارير شاملة ورؤى عميقة</h3>
+                            <p>لوحات تحكم تفاعلية توفر رؤية 360 درجة لأدائك 
+                                التسويقي. تتبع كل مقياس مهم، احصل على توصيات 
+                                فورية للتحسين، واتخذ قرارات مبنية على بيانات 
+                                حقيقية ومحدثة لحظياً.</p>
+                        </div>
+                    </div>
+
+                    <span class="animate scroll" style="--i:3;"></span>
+                </div>
+            </div>
+
+            <div class="education-column">
+                <h3 class="title"><br><span class="animate scroll" style="--i:5;"></span></h3>
+
+                <div class="education-box">
+                    <div class="education-content">
+                        <div class="content">
+                            <div class="year"><i class='bx bxs-calendar'></i> SEO Pro</div>
+                            <h3>تحسين محركات البحث</h3>
+                            <p>ارتقِ بترتيب موقعك في نتائج البحث مع أدوات SEO 
+                                المتقدمة. تحليل الكلمات المفتاحية، تدقيق الموقع، 
+                                ومراقبة الترتيب - كل الأدوات التي تحتاجها للتفوق 
+                                على منافسيك وزيادة الزيارات العضوية.</p>
+                        </div>
+                    </div>
+
+                    <span class="animate scroll" style="--i:6;"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <h2 class="heading">مزايا <span>لا تُضاهى</span><span class="animate scroll" style="--i:1;"></span></h2>
+
+        <div class="skills-row">
+            <div class="skills-column">
+                <h3 class="title">قوة التكنولوجيا<span class="animate scroll" style="--i:2;"></span></h3>
+
+                <div class="skills-box">
+                    <div class="skills-content">
+                        <div class="progress">
+                            <h3>الذكاء الاصطناعي المتقدم <span>95%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+
+                        <div class="progress">
+                            <h3>التحليلات في الوقت الفعلي <span>92%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+
+                        <div class="progress">
+                            <h3>التكامل السلس <span>88%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+
+                        <div class="progress">
+                            <h3>الأمان والخصوصية <span>98%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+                    </div>
+
+                    <span class="animate scroll" style="--i:3;"></span>
+                </div>
+            </div>
+
+            <div class="skills-column">
+                <h3 class="title">نتائج ملموسة<span class="animate scroll" style="--i:5;"></span></h3>
+
+                <div class="skills-box">
+                    <div class="skills-content">
+                        <div class="progress">
+                            <h3>زيادة الإنتاجية <span>300%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+
+                        <div class="progress">
+                            <h3>توفير الوقت <span>70%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+
+                        <div class="progress">
+                            <h3>تحسين معدل التحويل <span>250%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+
+                        <div class="progress">
+                            <h3>رضا العملاء <span>97%</span></h3>
+                            <div class="bar"><span></span></div>
+                        </div>
+                    </div>
+
+                    <span class="animate scroll" style="--i:6;"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2 class="heading">عملاؤنا <span>السابقون</span><span class="animate scroll" style="--i:1;"></span></h2>
+        <p style="font-size:1.7rem; color:#cfd6e3; margin-bottom:4rem;">
+            نفتخر بثقة شركائنا الذين شاركونا رحلتهم الرقمية، وحققنا معهم نتائج مميزة تعكس التزامنا بالجودة والابتكار.
+        </p>
+
+        <div class="clients-container">
+            <div class="client-card">
+                <img src="images/ghayma.jpg" alt="منصة غيمة">
+                <h3>منصة غيمة</h3>
+                <p>منصة تقنية متخصصة في حلول السحابة الرقمية. ساعدناهم على تحسين تجربة المستخدم بنسبة 45%.</p>
+                <div class="satisfaction">
+                    <h3>رضا العملاء</h3>
+                    <div class="bar-container">
+                        <div class="bar"><span style="width:96%;"></span></div>
+                    </div>
+                    <p>نسبة الرضا: 96%</p>
+                </div>
+            </div>
+
+            <div class="client-card">
+                <img src="images/gitbasha.png" alt="غيت باشا">
+                <h3>غيت باشا</h3>
+                <p>منصة رائدة لتطوير المشاريع البرمجية العربية. توفر مجتمعًا تفاعليًا ومستودعات أكواد مفتوحة المصدر، مما يتيح للمبرمجين العرب التعاون وتبادل الخبرات في بيئة محفزة للإبداع والابتكار.</p>
+                <div class="satisfaction">
+                    <h3>رضا العملاء</h3>
+                    <div class="bar-container">
+                        <div class="bar"><span style="width:94%;"></span></div>
+                    </div>
+                    <p>نسبة الرضا: 94%</p>
+                </div>
+            </div>
+
+            <div class="client-card">
+                <img src="images/liqa.png" alt="منصة لقاء">
+                <h3>لقاء</h3>
+                <p>منصة اجتماعات فيديو تعتمد على تقنية Peer-to-Peer لضمان أعلى مستويات الخصوصية والأمان.</p>
+                <div class="satisfaction">
+                    <h3>رضا العملاء</h3>
+                    <div class="bar-container">
+                        <div class="bar"><span style="width:98%;"></span></div>
+                    </div>
+                    <p>نسبة الرضا: 98%</p>
+                </div>
+            </div>
+
+            <div class="client-card">
+                <img src="images/bareeq.jpg" alt="مركز بريق">
+                <h3>بريق</h3>
+                <p>مركز بريق للتدريب والتطوير لتحسين حياة النساء والأطفال والشباب المحرومين من خلال برامج للتعليم وتنمية المهارات.</p>
+                <div class="satisfaction">
+                    <h3>رضا العملاء</h3>
+                    <div class="bar-container">
+                        <div class="bar"><span style="width:97%;"></span></div>
+                    </div>
+                    <p>نسبة الرضا: 97%</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-text">
+            <p>Copyright &copy; 2025 MarketPro. جميع الحقوق محفوظة | All Rights Reserved</p>
+            <span class="animate scroll" style="--i:1;"></span>
+        </div>
+
+        <div class="footer-iconTop">
+            <a href="#"><i class='bx bx-up-arrow-alt'></i></a>
+            <span class="animate scroll" style="--i:3;"></span>
         </div>
     </footer>
 
-    <script>
-        // =================================================================
-        // 1. منطق تبديل الوضع (Day/Night Mode)
-        // =================================================================
-        const themeToggle = document.getElementById('theme-toggle');
-        const body = document.body;
-        const sunIcon = document.getElementById('sun-icon');
-        const moonIcon = document.getElementById('moon-icon');
-
-        // تطبيق الوضع المحفوظ أو الوضع التلقائي للنظام
-        const applyTheme = (isDark) => {
-            if (isDark) {
-                body.classList.add('dark-mode');
-                sunIcon.classList.remove('hidden');
-                moonIcon.classList.add('hidden');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                body.classList.remove('dark-mode');
-                sunIcon.classList.add('hidden');
-                moonIcon.classList.remove('hidden');
-                localStorage.setItem('theme', 'light');
-            }
-        };
-
-        // التحقق من الإعدادات المحفوظة أو تفضيلات النظام عند التحميل
-        const initialTheme = localStorage.getItem('theme');
-        if (initialTheme === 'dark' || (!initialTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            applyTheme(true);
-        } else {
-            applyTheme(false);
-        }
-
-        // تبديل الوضع عند الضغط على الزر
-        themeToggle.addEventListener('click', () => {
-            const isDark = body.classList.contains('dark-mode');
-            applyTheme(!isDark);
-        });
-
-        // =================================================================
-        // 2. منطق تبديل اللغة (Arabic/English)
-        // =================================================================
-        const languageToggle = document.getElementById('language-toggle');
-        const html = document.documentElement;
-        
-        const translations = {
-            'page-title': ['أدوات التسويق الرقمي - الميزة التنافسية', 'Digital Marketing Tools - Competitive Advantage'],
-            'nav-platform-name': ['منصة', 'Platform'],
-            'nav-growth-name': ['النمو', 'Growth'],
-            'nav-features': ['المزايا', 'Features'],
-            'nav-clients': ['عملاؤنا', 'Our Clients'],
-            'nav-testimonial': ['الشهادات', 'Testimonials'],
-            'nav-cta': ['اطلب عرضاً توضيحياً', 'Request a Demo'],
-            'hero-part1': ['استراتيجيتك التسويقية، معززة', 'Your Marketing Strategy, Enhanced'],
-            'hero-part2': ['بذكاء منصتنا', 'by Our Platform\'s Intelligence'],
-            'hero-paragraph': ['من تحليل البيانات وصولاً إلى أعلى عائد استثمار (ROI). نحن نجعل التسويق الرقمي بسيطاً وفعالاً ومربحاً لك.', 'From data analysis to maximum Return on Investment (ROI). We make digital marketing simple, effective, and profitable for you.'],
-            'hero-cta': ['اكتشف كيف نُسَهّل عملك', 'Discover How We Simplify Your Work'],
-            'step1-title': ['التحليل الذكي', 'Smart Analysis'],
-            'step1-desc': ['نحلل بيانات السوق والجمهور آلياً لتقديم رؤى دقيقة.', 'We analyze market and audience data automatically to provide precise insights.'],
-            'step2-title': ['بناء الإستراتيجية', 'Strategy Building'],
-            'step2-desc': ['تخصيص المحتوى وتحسين ميزانية الإعلانات في الوقت الفعلي.', 'Content customization and real-time ad budget optimization.'],
-            'step3-title': ['تحقيق النمو', 'Achieving Growth'],
-            'step3-desc': ['شاهد نتائج فورية: ارتفاع المبيعات وتحقيق أعلى عائد استثمار.', 'Witness immediate results: increased sales and maximum ROI.'],
-            'clients-heading': ['يثق بنا شركاء النجاح', 'Success Partners Trust Us'],
-            'clients-cta': ['+ 100 شريك آخر', '+ 100 More Partners'],
-            'features-subtitle': ['القيمة الحقيقية لمنصتنا', 'The True Value of Our Platform'],
-            'features-heading': ['المزايا التنافسية: النتائج التي ستغير عملك', 'Competitive Advantages: Results That Will Change Your Business'],
-            'features-paragraph': ['نحن نركز على تحسين أداء التسويق لديك، وليس مجرد تقديم أدوات.', 'We focus on improving your marketing performance, not just providing tools.'],
-            'feature1-title': ['تسهيل الوصول لجمهورك المستهدف', 'Easier Access to Your Target Audience'],
-            'feature1-desc': ['نساعدك على تحديد وتصنيف شرائح العملاء بدقة متناهية لضمان وصول رسالتك لمن يهمه الأمر حقاً.', 'We help you accurately identify and classify customer segments to ensure your message reaches those who truly matter.'],
-            'feature2-title': ['الحصول على تقارير وتحليلات فعّالة', 'Obtaining Effective Reports and Analytics'],
-            'feature2-desc': ['وداعاً للتخمين. احصل على رؤى واضحة وقابلة للتنفيذ تدعم قراراتك التسويقية بذكاء.', 'Goodbye guesswork. Get clear, actionable insights that intelligently support your marketing decisions.'],
-            'feature3-title': ['تقليل تكاليف التسويق المهدورة', 'Reducing Wasted Marketing Costs'],
-            'feature3-desc': ['نضمن توجيه ميزانيتك الإعلانية نحو القنوات والجمهور الذي يحقق أعلى عائد استثمار.', 'We ensure your advertising budget is directed towards the channels and audience that yield the highest ROI.'],
-            'feature4-title': ['ساعات عمل أقل بفضل زيادة الكفاءة', 'Fewer Work Hours Due to Increased Efficiency'],
-            'feature4-desc': ['أتمتة المهام الروتينية تمنح فريقك الوقت للتركيز على الإبداع والاستراتيجية بدلاً من العمل اليدوي.', 'Automating routine tasks gives your team time to focus on creativity and strategy instead of manual labor.'],
-            'testimonial-quote': ['"منذ استخدام هذه المنصة، لم يعد التسويق عبئاً. لقد ارتفعت نسبة التحويلات بشكل كبير، والأهم من ذلك، أصبحت لدينا رؤية واضحة جداً للمكان الذي يجب أن نستثمر فيه وقتنا ومالنا. إنها ببساطة الأداة التي غيرت قواعد اللعبة بالنسبة لشركتنا."', '"Since using this platform, marketing is no longer a burden. Conversion rates have significantly increased, and more importantly, we have a very clear vision of where to invest our time and money. It\'s simply the game-changer tool for our company."'],
-            'testimonial-name': ['أحد عملائنا', 'One of Our Clients'],
-            'testimonial-title': ['مختص تسويق رقمي', 'Digital Marketing Specialist'],
-            'final-cta-heading': ['هل أنت مستعد لمضاعفة كفاءة تسويقك؟', 'Are You Ready to Double Your Marketing Efficiency?'],
-            'final-cta-paragraph': ['لا تضيع المزيد من الجهد والمال. تواصل معنا اليوم لتحقيق أقصى استفادة.', 'Don\'t waste more effort and money. Contact us today to achieve maximum benefit.'],
-            'final-cta-button': ['اطلب عرضاً توضيحياً', 'Request a Demo'],
-            'footer-text': ['منصة النمو. جميع الحقوق محفوظة.', 'Growth Platform. All rights reserved.'],
-        };
-
-        const updateLanguage = (lang) => {
-            const langIndex = lang === 'ar' ? 0 : 1;
-            
-            // 1. تحديث الاتجاه واللغة
-            html.setAttribute('lang', lang);
-            html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-            
-            // 2. تحديث نصوص الـ Toggle
-            languageToggle.textContent = lang === 'ar' ? 'EN' : 'عربي';
-            languageToggle.setAttribute('data-current-lang', lang);
-
-            // 3. تحديث النصوص بناءً على مفاتيح data-i18n
-            document.getElementById('page-title').textContent = translations['page-title'][langIndex];
-
-            document.querySelectorAll('[data-i18n]').forEach(element => {
-                const key = element.getAttribute('data-i18n');
-                if (translations[key]) {
-                    element.textContent = translations[key][langIndex];
-                }
-            });
-            
-            localStorage.setItem('lang', lang);
-        };
-
-        // تطبيق اللغة المحفوظة
-        const initialLang = localStorage.getItem('lang') || 'ar';
-        updateLanguage(initialLang);
-
-        // تبديل اللغة عند الضغط على الزر
-        languageToggle.addEventListener('click', () => {
-            const currentLang = languageToggle.getAttribute('data-current-lang');
-            const newLang = currentLang === 'ar' ? 'en' : 'ar';
-            updateLanguage(newLang);
-        });
-    </script>
+    <script src="script.js" defer></script>
 </body>
+
 </html>
