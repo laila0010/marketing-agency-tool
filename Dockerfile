@@ -5,7 +5,10 @@ FROM nginx:alpine
 RUN rm -rf /usr/share/nginx/html/*
 
 # انسخ كل ملفات المشروع إلى مسار Nginx
-COPY . /usr/share/nginx/html/
+COPY index.html /usr/share/nginx/html/
+COPY style.css /usr/share/nginx/html/
+COPY script.js /usr/share/nginx/html/
+COPY images/ /usr/share/nginx/html/images/
 
 # كشف البورت 80
 EXPOSE 80
